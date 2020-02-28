@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>2-3</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#btn0").click(function () {
+                $("*").css("background-color", "white");
+            });
+            $("#btn1").click(function () {
+                $("#two").css("background-color", "red");
+            });
+            $("#btn2").click(function () {
+                $(".one").css("background-color", "red");
+            });
+            $("#btn3").click(function () {
+                $("div").css("background-color", "red");
+            });
+            $("#btn4").click(function () {
+                $("#one").css("background-color", "red");
+            });
+        })
+    </script>
+    <style type="text/css">
+        div, span, p {
+            width: 140px;
+            height: 140px;
+            margin: 5px;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Verdana;
+        }
+
+        div.mini {
+            width: 55px;
+            height: 55px;
+            font-size: 12px;
+        }
+
+        div.hide {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+
+<h3>基本选择器.</h3>
+<pre>
+   要求：点击按钮，实现选择对应元素设置背景颜色为红色
+         点击效果清除，所有元素背景设置为白色
+ </pre>
+<hr/>
+
+<!-- 控制按钮 -->
+<button id="btn0">效果清除</button>
+<button id="btn1">选择two</button>
+<button id="btn2">选择class为One</button>
+<button id="btn3">选择div</button>
+<button id="btn4">选择one,mini</button>
+
+<br/><br/>
+
+<!-- 测试的元素 -->
+<div class="one" id="one">
+    id为one,class为one的div
+    <div class="mini">class为mini</div>
+</div>
+
+<div class="one" id="two" title="test">
+    id为two,class为one,title为test的div.
+    <div class="mini" style="opacity:0.9" title="other">
+        class为mini,title为other
+    </div>
+    <div class="mini" title="test">
+        class为mini,title为test
+    </div>
+</div>
+
+<div class="one">
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini"></div>
+</div>
+
+<div class="one">
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini" title="tesst">class为mini,title为tesst</div>
+</div>
+
+
+<div style="display:none;" class="none">style的display为"none"的div</div>
+<div class="hide">class为"hide"的div</div>
+
+<div>
+    包含input的type为"hidden"的div
+    <input type="hidden" size="8" name="id" value="101"/>
+</div>
+
+</body>
+</html>

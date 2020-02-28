@@ -1,0 +1,128 @@
+server:
+  port: 8080 # web容器端口号
+  # error:
+    # path: /error # 项目出错时跳转去的页面
+  servlet:
+    session:
+      timeout: 30m # session 过期时间
+    context-path: / # 项目名称。默认为 / 。如果配置了，就要再访问路径加上该路径
+  tomcat:
+    uri-encoding: utf-8 # Tomcat请求编码
+    max-threads: 500 # Tomcat 最大线程数
+    basedir: F:/temp # 存放 Tomcat 运行日志和临时文件的目录，若不配置，则默认使用系统的临时目录
+  # ssl: # https 配置
+    # key-store: sang.p12 # 密钥文件名
+    # key-alias: tomcathttps # 密钥别名
+    # key-store-password: 123456 # 密码
+spring:
+  thymeleaf:
+    cache: false # 是否开启缓存，默认为true
+    check-template: true # 检查模板是否存在，默认为true
+    check-template-location: true # 检查模板位置是否存在，默认为true
+    encoding: UTF-8 # 模板文件编码
+    prefix: classpath:/templates/ # 模板文件位置
+    servlet:
+      content-type: text/html # Context-Type配置
+    suffix: .html # 模板文件后缀
+  http:
+    encoding:
+      force-response: true # MyFastJsonConfig配置后所配置的响应编码(如果没这个会导致返回的JSON中文乱码)
+  # mvc: # 自定义静态资源过滤策略
+    # static-path-pattern: /static/** # 自定义过滤规则
+  # resources:
+    # static-locations: classpath:/static/ # 自定义静态资源位置
+  servlet:
+    multipart: # 上传文件参数配置
+      enabled: true # 是否开启文件上传支持，默认为 true
+      file-size-threshold: 0 # 文件写入磁盘的阈值，默认为0
+      location:  # 上传文件的临时保存位置
+      max-file-size: 2MB # 上传的单个文件最大大小，默认为 1MB
+      max-request-size: 10MB # 多文件上传时文件的总大小，默认为 10MB
+      resolve-lazily: false # 文件是否延迟解析，默认为 false
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/security?serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: 123456
+  jpa: # spring-data-jpa 相关配置
+    show-sql: true # 是否在控制台打印 JPA 执行过程生成的 SQL
+    database: mysql # JPA对应的数据库
+    hibernate:
+      ddl-auto: update # 项目启动时根据实体类更新数据库中的表
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect # 使用的数据库方言是 MySQL57Dialect
+  # mybatis:
+  # mapper-locations: classpath:mapper/*.xml # 配置mybatis扫描映射文件的位置
+  redis: # ↓ redis 单机 ↓
+    database: 0 # 使用的 Redis 库的编号，取值 0-15
+    host: localhost # Redis 实例的地址
+    port: 6379 # Redis 端口号，默认6379
+    password:
+    jedis:
+      pool:
+        max-active: 8 # 连接池的最大连接数
+        max-idle: 8 # 连接池中的最大空闲连接数
+        max-wait: -1ms # 连接池的最大阻塞等待时间，默认为 -1，表示没有限制
+        min-idle: 0 # 连接池最小空闲连接数
+    cluster: # ↓ redis集群 ↓
+      ports:
+        - 8001
+        - 8002
+        - 8003
+        - 8004
+        - 8005
+        - 8006
+        - 8007
+        - 8008
+      host: 192.168.1.10
+      poolConfig:
+        max-total: 8
+        max-idle: 8
+        max-wait-millis: -1
+        min-idle: 0
+  data:
+    mongodb: # mongodb 配置
+      authentication-database: admin # 验证登录信息的库
+      database: test # 要连接的库，认证信息不一定在连接的库中创建，因此这连个分开配置
+      host: 192.168.1.10
+      port: 27017
+      username: sang
+      password: 123
+  security:
+    user:
+      name: sang
+      password: 123
+      roles: admin
+  activemq: # 配置 JMS (实现为 ActiveMQ)
+    broker-url: tcp://192.168.1.7:61616 # broker地址及端口号，默认为61616
+    packages:
+      trust-all: true # 信任所有的包
+    user: admin
+    password: admin
+  rabbitmq: # 配置 AMQP (实现为 RabbitMQ)
+    host: 192.168.1.7
+    port: 5672
+    username: sang
+    password: 123
+shiro:
+  enabled: true # 开启 shiro 配置，默认为 true
+  web:
+    enabled: true # 开启 Shiro Web 配置，默认为 true
+  loginUrl: /login # 登录地址，默认为 /login.jsp
+  successUrl: /index # 登录成功的地址，默认为 /
+  unauthorizedUrl: /unauthorized # 未获授权的默认跳转地址
+  sessionManager:
+    sessionIdUrlRewritingEnabled: true # 是否允许通过 URL 参数实现会话跟踪，如果网站支持 Cookie，可以关闭此选项，默认为 true
+    sessionIdCookieEnabled: true # 是否允许通过 Cookie 实现会话跟踪，默认为 true
+ds: # 多数据源配置 配置类在 config/datasource下
+  one:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/chapter05-1?serverTimezone=GMT%2B8&useSSL=false
+  two:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/chapter05-2?serverTimezone=GMT%2B8&useSSL=false

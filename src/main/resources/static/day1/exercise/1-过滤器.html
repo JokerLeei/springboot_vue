@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>2-3</title>
+ <style type="text/css">
+     div,span,p {
+    width:140px;
+    height:140px;
+    margin:5px;
+  border:#000 1px solid;
+    float:left;
+    font-size:17px;
+    font-family:Verdana;
+  }
+  div.mini { 
+    width:55px;
+    height:55px;
+    font-size:12px;
+  }
+  div.hide { 
+    display:none;
+  }
+ </style>
+ 
+</head>
+<body>
+ 
+ <h3>过滤器.</h3>
+ <pre>
+   要求：点击按钮，实现选择对应元素设置背景颜色为红色
+         点击效果清除，所有元素背景设置为白色
+ </pre>
+ <hr/>
+ 
+ <!-- 控制按钮 -->
+  <button id="btn0">效果清除</button>
+  <button id="btn1">第一个div的第一个元素</button>
+  <button id="btn2">第二个div的第一个孩子</button>
+  <button id="btn4">选择隐藏的元素并变为显示</button>
+  <button id="btn5">选择value值为101的元素</button>
+  <button id="btn6">选择只有一个孩子的元素</button>
+  <button id="btn7">选择列表的第五个li</button>
+  
+  <br/><br/>
+
+   <!-- 测试的元素 -->
+  <div class="one" id="one" >
+	  id为one,class为one的div
+      <div class="mini">class为mini</div>
+  </div>
+
+  <div class="one"  id="two" title="test" >
+	 id为two,class为one,title为test的div.
+      <div class="mini" style="opacity:0.9" title="other">class为mini,title为other</div>
+      <div class="mini"  title="test">class为mini,title为test</div>
+  </div>
+
+  <div class="one" id="three">
+      <div class="mini">class为mini</div>
+      <div class="mini">class为mini</div>
+	  <div class="mini">class为mini</div>
+	  <div class="mini"></div>
+  </div>
+
+  <div class="one">
+      <div class="mini">class为mini</div>
+      <div class="mini">class为mini</div>
+	  <div class="mini">class为mini</div>
+	  <div class="mini"  title="tesst">class为mini,title为tesst</div>
+  </div>
+
+
+  <div style="display:none;"  class="none">style的display为"none"的div</div>
+  
+  <div class="hide">class为"hide"的div</div>
+ 
+  <div>
+	包含input的type为"hidden"的div
+	<input type="hidden" size="8" name="id" value="101"/>
+  </div>
+  <div style="height:480px;background-color:white">
+	<ul>
+		<li>国庆</li>
+		<li>元旦</li>
+		<li>清明</li>
+		<li>端午</li>
+		<li>中秋</li>
+		<li>国庆</li>
+		<li>元旦</li>
+		<li>清明</li>
+		<li>端午</li>
+		<li>中秋</li>
+		<li>国庆</li>
+		<li>元旦</li>
+		<li>清明</li>
+		<li>端午</li>
+		<li>中秋</li>
+		<li>国庆</li>
+		<li>元旦</li>
+		<li>清明</li>
+		<li>端午</li>
+		<li>中秋</li>
+	</ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+1.创建项目，添加依赖
+security、redis、web、oauth2
+
+2.配置授权服务器
+    AuthorizationServerConfig
+
+3.配置资源服务器
+    ResourceServerConfig
+
+4.配置Security
+    WebSecurityConfig
+
+5.测试验证

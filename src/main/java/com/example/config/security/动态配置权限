@@ -1,0 +1,13 @@
+实现资源和角色之间的动态调整(动态配置URL权限)
+
+1.数据库设计
+    user表   用户表
+    role表   角色表
+    menu表   权限表
+    2个桥表
+
+2.自定义 FilterInvocationSecurityMetadataSource
+
+3.自定义 AccessDecisionManager
+
+4.配置 SpringSecurity 的配置类
