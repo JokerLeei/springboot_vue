@@ -90,6 +90,7 @@ Service、Dao 直接测。Controller 用 Mock。JSON测试
 3.Shiro
 
 -----
+
 ### 消息服务
 1.JMS（activeMQ）
 2.AMQP（RabbitMQ）
